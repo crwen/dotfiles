@@ -1,0 +1,86 @@
+
+##################################### Window ############################################
+# focus window
+# change window focus within space
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+
+#change focus between external displays (left and right)
+alt - s: yabai -m display --focus west
+alt - g: yabai -m display --focus east
+
+# swap managed window
+# shift + alt - h : yabai -m window --swap north
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - h : yabai -m window --swap west
+shift + alt - l : yabai -m window --swap east
+
+shift + alt - s :yabai -m window --display west
+shift + alt - g :yabai -m window --display east
+
+# move window and split
+# 移动当前窗口到 xxx 位置
+# shift + cmd - h : yabai -m window --warp # swap windows
+ctrl + alt - j : yabai -m window --warp south
+ctrl + alt - k : yabai -m window --warp north
+ctrl + alt - h : yabai -m window --warp west
+ctrl + alt - l : yabai -m window --warp east
+
+# ctrl + alt - s: yabai -m display --warp west
+# ctrl + alt - g: yabai -m display --warp east
+
+
+# balance size of windows
+shift + alt - 0 : yabai -m space --balance
+
+# increase window size
+shift + alt - left : yabai -m window --resize left:-20:0
+shift + alt - up : yabai -m window --resize top:0:-20
+shift + alt - down : yabai -m window --resize bottom:0:+20
+# shift + alt - right : yabai -m window --resize right:0:+20
+shift + alt - right : yabai -m window --resize right:+20:0
+
+# decrease window size
+ctrl + alt - left : yabai -m window --resize left:+20:0
+ctrl + alt - up : yabai -m window --resize top:0:+20
+ctrl + alt - down : yabai -m window --resize bottom:0:-20
+# ctrl + alt - right : yabai -m window --resize right:0:-20
+ctrl + alt - right : yabai -m window --resize right:-20:0
+
+
+# set insertion point in focused container
+# ctrl + alt - h : yabai -m window --insert west
+
+# toggle window zoom
+# alt - d : yabai -m window --toggle zoom-parent
+ctrl + alt - 0x24 : yabai -m window --toggle zoom-fullscreen
+
+
+# make floating window fill screen
+# shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
+
+# make floating window fill left-half of screen
+# shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
+
+# rotate layout clockwise
+shift + alt - r : yabai -m space --rotate 270
+
+# flip along y-axis
+shift + alt - y : yabai -m space --mirror y-axis
+
+# flip along x-axis
+shift + alt - x : yabai -m space --mirror x-axis
+
+# toggle window float
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+
+# minimize current window ctrl + alt - m : yabai -m window --minimize restore the givn window, if is minimized
+shift + alt - m : yabai -m window --deminimize
+
+# close current window
+ctrl + alt - d : yabai -m window --close
+
