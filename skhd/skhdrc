@@ -76,6 +76,7 @@
 # A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
 # ############################################################### #
 
+ 
 ##################################### Quick Start ############################################
 alt - t : open /Applications/iTerm.app
 
@@ -168,8 +169,8 @@ alt - t : open /Applications/iTerm.app
 # alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-# alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt - f : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # toggle sticky(+float), topmost, picture-in-picture
-# alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
+alt - p : yabai -m window --toggle sticky --toggle topmost --toggle pip
 
