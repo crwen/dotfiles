@@ -1,8 +1,39 @@
 return {
   {
+    "rcarriga/nvim-notify",
+    keys = {
+      {
+        "<leader>un",
+        function()
+          require("notify").dismiss({ silent = true, pending = true })
+        end,
+        desc = "Dismiss all Notifications",
+      },
+    },
+    opts = {
+      timeout = 3000,
+      max_height = function()
+        return math.floor(vim.o.lines * 0.75)
+      end,
+      max_width = function()
+        return math.floor(vim.o.columns * 0.75)
+      end,
+    },
+    init = function()
+      -- when noice is not enabled, install notify on VeryLazy
+      local Util = require("lazyvim.util")
+      if not Util.has("noice.nvim") then
+        Util.on_very_lazy(function()
+          vim.notify = require("notify")
+        end)
+      end
+    end,
+  },
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
+
       lsp = {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -18,9 +49,24 @@ return {
               { find = "%d+L, %d+B" },
               { find = "; after #%d+" },
               { find = "; before #%d+" },
+              { find = "%d+" },
             },
+            -- opts = { skip = true },
+            -- view = "mini",
+            -- ["not"] = { find = "code_action" },
           },
-          view = "mini",
+        },
+        {
+          filter = {
+            -- event = "msg_clear",
+            any = {
+              { find = "code_action null" },
+              { find = "# Plugin Updates" },
+            },
+            -- opts = { skip = true },
+            -- view = "mini",
+            -- ["not"] = { find = "code_action" },
+          },
         },
       },
       presets = {

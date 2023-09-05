@@ -8,6 +8,8 @@ vim.g.maplocalleader = "\\"
 local opt = vim.opt
 
 opt.termguicolors = true
+vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
+
 opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 

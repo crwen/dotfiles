@@ -41,3 +41,18 @@ map("n", "<C-b>", "12k", opt)
 -- 插件快捷键
 
 -- map("n", "s", "<nop>", opt)
+map("n", "<space>o", "<cmd>Lspsaga outline<cr>", opt)
+map("n", "<M-d>", "<cmd>Lspsaga term_toggle<cr>", opt)
+-- vim.keymap.set({ "n", "t", "<A-d>", "<cmd>Lspsaga term_toggle" })
+
+-- local Util = require("lazyvim.util")
+-- -- floating terminal
+-- local lazyterm = function()
+--   Util.float_term(nil, { cwd = Util.get_root(), border = "single" })
+-- end
+-- map("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
+
+-- vim.keymap.del("n", "<leader>ft")
+-- vim.keymap.del("n", "<leader>fT")
+-- vim.keymap.del("n", "<c-/>")
+-- vim.keymap.del("n", "<c-_>")
