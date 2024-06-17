@@ -1,0 +1,171 @@
+[
+  // ------------------------ global key bindings -----------------------------
+  {
+    "bindings": {
+      "ctrl-k": "menu::SelectPrev",
+      "ctrl-j": "menu::SelectNext"
+    }
+  },
+
+  // ---------------------------  jump between dock ------------------------------
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      // ctrl-h is not enabled in Terminal
+      // "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      // ... or other keybindings
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+
+  // ------------------------------ Normal Mode --------------------------------
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {}
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work only in normal mode
+      "space w": "workspace::Save", // remap space + w in normal mode to save
+      "space q": ["workspace::SendKeystrokes", ": q enter"],
+      // move
+      "ctrl-a": "vim::StartOfLineDownward",
+      "ctrl-e": "vim::EndOfLine",
+      "ctrl-u": ["workspace::SendKeystrokes", "6 k"],
+      "ctrl-d": ["workspace::SendKeystrokes", "6 j"],
+      // panel
+      "ctrl-l ": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-h ": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-k ": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j ": ["workspace::ActivatePaneInDirection", "Down"],
+      // tab
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem",
+      "shift-w": "pane::CloseActiveItem",
+      "space b": "tab_switcher::Toggle",
+      // search
+      "ctrl-f": "file_finder::Toggle",
+      "space f": "file_finder::Toggle",
+      "space shift-s": "project_symbols::Toggle",
+      // "space s": "sym",
+      // "ctrl-g": "search::ToggleRegex"
+
+      // toggle code action
+      "space c a": "editor::ToggleCodeActions",
+      // outline
+      "space o": "outline::Toggle",
+      // explore
+      "space e": "workspace::ToggleLeftDock",
+      // terminal
+      // "space t": "workspace::OpenTerminal"
+      "g r": "editor::FindAllReferences"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      // visual, visual line & visual block modes
+      "ctrl-a": "vim::StartOfLineDownward",
+      "ctrl-e": "vim::EndOfLine"
+    }
+  },
+
+  // ---------------------------- insert mode ---------------------------------------
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in insert mode
+      // e.g.
+      "j j": "vim::NormalBefore", // remap jj in insert mode to escape.
+      "ctrl-p": "editor::ShowCompletions"
+    }
+  },
+
+  // ------------------------------- Project Panel ----------------------------------
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "left": "project_panel::CollapseSelectedEntry",
+      "s": "project_panel::ExpandSelectedEntry",
+      "a": "project_panel::NewFile",
+      "x": "project_panel::Cut",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "d": [
+        "project_panel::Trash",
+        {
+          "skip_prompt": false
+        }
+      ],
+      "r": "project_panel::Rename"
+      // "cmd-alt-c": "project_panel::CopyPath",
+      // "alt-cmd-shift-c": "project_panel::CopyRelativePath",
+      // "backspace": ["project_panel::Trash", { "skip_prompt": false }],
+      // "cmd-backspace": ["project_panel::Delete", { "skip_prompt": false }],
+      // "cmd-delete": ["project_panel::Delete", { "skip_prompt": false }],
+      // "alt-cmd-r": "project_panel::RevealInFinder",
+      // "alt-shift-f": "project_panel::NewSearchInDirectory",
+      // "shift-down": "menu::SelectNext",
+      // "shift-up": "menu::SelectPrev",
+      // "ctrl-l": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {}
+  },
+
+  // ------------------------------ Tab Switch ----------------------------------
+  {
+    "context": "TabSwitcher",
+    "bindings": {
+      "j": "menu::SelectPrev",
+      "k": "menu::SelectNext",
+      "shift-w": "tab_switcher::CloseSelectedItem"
+    }
+  },
+
+  // ------------------------------ Auto Completion ----------------------------
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      // use ctrl-j, ctrl-k to select next item in code completion
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrev"
+    }
+  },
+
+  // ------------------------------- Lsp Relative ----------------------------
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "g j": "editor::GoToDiagnostic",
+      "g k": "editor::GoToPrevDiagnostic",
+      "g w": "diagnostics::Deploy",
+
+      "g r": "editor::FindAllReferences"
+    }
+  },
+
+  // -------------------------------- Task ---------------------------------
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // only in normal mode
+      "space g g": [
+        "workspace::SendKeystrokes",
+        ": new center terminal enter lazygit space enter"
+      ]
+    }
+  }
+]

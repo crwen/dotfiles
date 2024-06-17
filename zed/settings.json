@@ -1,0 +1,59 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "telemetry": {
+    "metrics": false
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "auto_update": false,
+  // "buffer_font_family": "Consolas NF",
+  // "buffer_font_family": "Mononoki Nerd Font Mono",
+  // "buffer_font_family": "FiraCode Nerd Font",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/target",
+    "**/node_modules"
+  ],
+  "relative_line_numbers": true,
+  // "vertical_scroll_margin": 0,
+  // "gutter": {
+  //   "line_numbers": false
+  // },
+  "cursor_blink": true,
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy" // rust-analyzer.check.command (default: "check")
+        }
+      }
+    }
+  }
+
+  // "terminal": {
+  //   "shell": {
+  //     "program": "zsh"
+  //   }
+  // }
+  // "languages": {
+  //   "Go": {
+  //   }
+  // }
+}
